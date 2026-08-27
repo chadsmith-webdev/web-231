@@ -25,10 +25,22 @@ window.addEventListener("load", setupForm);
 // set the form's default values
 function setupForm() {
   document.getElementById("photoNum").value = 1;
+
   document.getElementById("photoHrs").value = 2;
   document.getElementById("makeBook").checked = false;
   document.getElementById("photoRights").checked = false;
   document.getElementById("photoDist").value = 0;
+
+  // Add event handlers for each input control
+  document.getElementById("photoNum").onchange = getEstimate;
+
+  document.getElementById("photoHrs").onchange = getEstimate;
+
+  document.getElementById("photoDist").onchange = getEstimate;
+
+  document.getElementById("makeBook").onchange = getEstimate;
+
+  document.getElementById("photRights").onchange = getEstimate;
 }
 
 // estimate the total cost of the service
