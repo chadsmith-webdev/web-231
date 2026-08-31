@@ -20,3 +20,21 @@ let weekDays = [
   "Friday",
   "Saturday",
 ];
+
+window.addEventListener("load", addWeekDays);
+
+// Function to write weekday names into the calendar
+function addWeekDays() {
+  let i = 0; // initial counter value
+
+  // reference the collection of heading cells
+  let headingCells = document.getElementsByTagName("th");
+
+  // write each of the seven days into a heading cell
+  while (i < 7) {
+    headingCells[i].innerHTML = weekDays[i];
+
+    // increase the counter by 1
+    i++;
+  }
+}
