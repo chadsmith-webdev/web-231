@@ -63,6 +63,15 @@ function showGames() {
     gameInfo +=
       gameResults[i] + ": (" + runsScored[i] + " - " + runsAllowed[i] + ")";
 
+    // Display innings played for suspended, shortened, or extrainning games
+    if (gameInnings[i] < 5) {
+      gameInfo += " [" + gameInnings[i] + "]***";
+    } else if (gameInnings[i] < 9) {
+      gameInfo += " [" + gameInnings[i] + "]*";
+    } else if (gameInnings[i] > 9) {
+      gameInfo += " [" + gameInnings[i] + "]";
+    }
+
     // close the paragraph
     gameInfo += "</p>";
 
