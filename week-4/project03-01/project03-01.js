@@ -9,6 +9,9 @@
       Filename: project03-01.js
 */
 
+/* Create an application that calculates the total cost of items selected from a lunch menu using a for loop and an if statement as part of the program code. The cost of each menu item is stored in the value attribute of an input control on a web form.
+ */
+
 let menuItems = document.getElementsByClassName("menuItem");
 
 for (let i = 0; i < menuItems.length; i++) {
