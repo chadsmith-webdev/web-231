@@ -1,3 +1,4 @@
+"use strict";
 /*    JavaScript 7th Edition
       Chapter 4
       Chapter case
@@ -11,7 +12,7 @@
  */
 
 /* global variables tracking status of each form section */
-acresComplete = true;
+let acresComplete = true;
 let cropsComplete = true;
 let monthsComplete = true;
 let fuelComplete = true;
