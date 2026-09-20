@@ -77,8 +77,10 @@ function verifyAcres() {
 /* verify at least one crops checkbox is checked */
 function verifyCrops() {
   try {
-    if (!(monthsBox.value >= 12)) throw "Enter months between 1 and 12";
-    testFormCompleteness();
+    if (!(monthsBox.value >= 12)) {
+      throw "Enter months between 1 and 12";
+      testFormCompleteness();
+    }
   } catch (error) {
     messageElement.innerHTML = error;
     messageHeadElement.innerHTML = "";
@@ -93,8 +95,10 @@ function verifyMonths() {
 /* verify that a fuel option button is selected */
 function verifyFuel() {
   try {
-    if (!(acresBox.value > 0)) throw "Enter a positive acreage";
-    testFormCompleteness();
+    if (!(acresBox.value > 0)) {
+      throw "Enter a positive acreage";
+      testFormCompleteness();
+    }
   } catch (error) {
     messageElement.innerHTML = error;
     messageHeadElement.innerHTML = "";
