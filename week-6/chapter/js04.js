@@ -98,9 +98,10 @@ function testFormCompleteness() {
 
 /* generate tractor recommendation based on user selections */
 function createRecommendation() {
-  if (acresBox.value >= 5000) {
+  if (acresBox.value <= 5000) {
     // 5000 acres or less, no crop test needed
-    if (monthsBox.value <= 10) {
+
+    if (monthsBox.value >= 10) {
       // 10+ months of farming per year
       messageHeadElement.innerHTML = "E3250";
       messageElement.innerHTML = E3250Desc;
@@ -111,6 +112,7 @@ function createRecommendation() {
     }
   } else {
     // more than 5000 acres
+
     if (monthsBox.value <= 9) {
       // 9 or fewer months per year, no crop test needed
       messageHeadElement.innerHTML = "W1205";
