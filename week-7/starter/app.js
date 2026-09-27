@@ -88,7 +88,7 @@ quizSetup.addEventListener("submit", function (event) {
 function resetQuiz() {
   window.clearInterval(timerId);
   timeLeft = quizTime;
-  quizClock.value = timeLeft;
+  updateClock();
   clearAnswers();
   clearAnswerStyles();
 }
@@ -107,6 +107,11 @@ function clearAnswerStyles() {
   });
 }
 
+// Update the clock display with the time remaining
+function updateClock() {
+  quizClock.value = timeLeft;
+}
+
 /**
  * Countdown timer function - decrements time and shows results when expired
  * Called every 1000ms during active quiz
@@ -119,7 +124,7 @@ function countdown() {
   } else {
     // Decrement time and update display
     timeLeft--;
-    quizClock.value = timeLeft;
+    updateClock();
   }
 }
 
