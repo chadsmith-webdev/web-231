@@ -78,21 +78,31 @@ quizSetup.addEventListener("submit", function (event) {
 // Quiz Management Functions
 // ============================================
 
-/**
+/*
  * Reset quiz to initial state:
  * - Clear any active countdown
-* - Reset time to full duration
- * - Clear all question inputs
- * - Remove wrong answer styling
+ * - Reset time to full duration
+ * - Clear answers
+ * - Remove error styling
  */
 function resetQuiz() {
   window.clearInterval(timerId);
   timeLeft = quizTime;
   quizClock.value = timeLeft;
+  clearAnswers();
+  clearAnswerStyles();
+}
 
-  // Clear all question responses and error styling
+// Clear all question responses
+function clearAnswers() {
   questionList.forEach((input) => {
     input.value = "";
+  });
+}
+
+// Clear all error styling
+function clearAnswerStyles() {
+  questionList.forEach((input) => {
     input.classList.remove("wronganswer");
   });
 }
