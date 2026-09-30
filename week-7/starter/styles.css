@@ -19,6 +19,7 @@ body {
   background: #f5f7fb; /* Light blue background */
   color: #1f2937; /* Dark gray text */
 }
+
 /* Page header */
 header {
   background: #1f3c88; /* Dark blue header */
@@ -33,6 +34,7 @@ main {
   margin: 0 auto;
   padding: 24px 16px 40px;
 }
+
 /* Two-column layout: fixed-width sidebar + flexible main area */
 .app-grid {
   display: grid;
@@ -40,6 +42,7 @@ main {
   gap: 20px;
   align-items: start;
 }
+
 /* Sidebar sections spacing */
 .sidebar .setup-section,
 .sidebar .summary-section {
@@ -55,6 +58,7 @@ section {
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle shadow for depth */
 }
+
 /* Section headings */
 h2 {
   margin-top: 0;
@@ -75,6 +79,7 @@ label {
   margin-bottom: 6px;
   font-weight: 600;
 }
+
 /* Text inputs and selects */
 input[type="text"],
 select {
@@ -95,6 +100,7 @@ select {
   padding: 8px 10px;
   font-size: 1rem;
 }
+
 /* Button styling */
 button {
   background: #1f3c88;
@@ -110,6 +116,7 @@ button {
 button:hover {
   background: #17306f; /* Darker blue on hover */
 }
+
 /* Error message display */
 .error-box {
   min-height: 22px;
@@ -123,12 +130,9 @@ button:hover {
 .results-section p {
   margin: 8px 0;
 }
-/* Quiz header with title and timer */
+
+/* Quiz header */
 .quiz-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
   margin-bottom: 18px;
 }
 
@@ -136,9 +140,14 @@ button:hover {
 .timer-box {
   min-width: 140px;
   padding: 14px 12px;
+  margin-bottom: 16px;
   text-align: center;
   border-radius: 12px;
-  background: linear-gradient(180deg, #eef4ff 0%, #e6f0ff 100%); /* Blue gradient background */
+  background: linear-gradient(
+    180deg,
+    #eef4ff 0%,
+    #e6f0ff 100%
+  ); /* Blue gradient background */
   border: 1px solid #c8d8f2;
   box-shadow: 0 4px 12px rgba(31, 60, 136, 0.08);
 }
@@ -152,7 +161,9 @@ button:hover {
   border: none;
   background: transparent;
   color: #1f3c88;
-} /* Questions container */
+}
+
+/* Questions container */
 .questions-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -161,42 +172,41 @@ button:hover {
 
 /* Question row wrapper */
 .question-row {
-  padding: 0; /* Inner spacing handled by .question-content */
-  border: none;
-  background: transparent;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fafbfc;
 }
 
 /* Question card container */
 .question-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fff;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Question number label */
+.question-number {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1f3c88;
 }
 
 /* Question text */
 .question-text {
-  flex: 1 1 auto; /* Expand to fill available space */
   font-weight: 600;
   color: #0f172a;
 }
 
+.question-text label {
+  margin-bottom: 0;
+}
+
 /* Question input area */
 .question-input {
-  flex: 0 0 140px; /* Fixed width for answer inputs */
-  display: flex;
-  align-items: center;
-}
-/* Question row background */
-.question-row {
-  padding: 14px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fafbfc;
+  width: 100%;
 }
 
 /* Styling for incorrect answers */
@@ -209,7 +219,9 @@ button:hover {
 /* Hidden class for toggling section visibility */
 .hidden {
   display: none;
-} /* ==================================================
+}
+
+/* ==================================================
    RESPONSIVE DESIGN - Mobile and Tablet
    ================================================== */
 @media (max-width: 800px) {
@@ -218,16 +230,8 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  /* Stack quiz header items vertically on mobile */
-  .quiz-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Adjust timer positioning on mobile */
+  /* Keep timer sized naturally in the stacked sidebar */
   .timer-box {
-    margin-top: 8px;
-    align-self: flex-end;
     min-width: 120px;
   }
 }
