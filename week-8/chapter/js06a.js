@@ -17,6 +17,11 @@ window.addEventListener("load", function () {
   // Select Model selection list when form opens
   model.focus();
 
+  // Add an event listener for every form element
+  for (let i = 0; i < orderForm.elements.length; i++) {
+    orderForm.elements[i].addEventListener("change", calcOrder);
+  }
+
   // Calculate the cost of the order
   calcOrder();
 
