@@ -19,6 +19,10 @@ subButton.addEventListener("click", validateCard);
 
 subButton.addEventListener("click", validateNumber);
 
+subButton.addEventListener("click", validateMonth);
+
+subButton.addEventListener("click", validateYear);
+
 // check if the owner's name is entered on the card
 
 function validateName() {
@@ -49,6 +53,26 @@ function validateNumber() {
     cNum.setCustomValidity("Enter a valid card number");
   } else {
     cNum.setCustomValidity("");
+  }
+}
+
+// Check that a month is selected for the expiration date
+function validateMonth() {
+  let month = document.getElementById("expMonth");
+  if (month.selectedIndex === 0) {
+    month.setCustomValidity("Select the expiration month");
+  } else {
+    month.setCustomValidity("");
+  }
+}
+
+// Check that a year is selected for the expiration date
+function validateYear() {
+  let year = document.getElementById("expYear");
+  if (year.selectedIndex === 0) {
+    year.setCustomValidity("Select the expiration year");
+  } else {
+    year.setCustomValidity("");
   }
 }
 
