@@ -15,6 +15,8 @@ let subButton = document.getElementById("subButton");
 // Validate the payment when the submit button is clicked
 subButton.addEventListener("click", validateName);
 
+subButton.addEventListener("click", validateCard);
+
 // check if the owner's name is entered on the card
 
 function validateName() {
@@ -23,6 +25,16 @@ function validateName() {
     cardName.setCustomValidity("Enter your name as it appears on the card");
   } else {
     cardName.setCustomValidity("");
+  }
+}
+
+// Check if a credit card has been selected
+function validateCard() {
+  let card = document.forms.payment.elements.credit[0];
+  if (card.validity.valueMissing) {
+    card.setCustomValidity("Select your credit card");
+  } else {
+    card.setCustomValidity("");
   }
 }
 
