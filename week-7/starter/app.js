@@ -22,10 +22,18 @@ const correctAnswers = ["10", "4", "-6", "5", "-7"]; // Correct answer for each 
 const quizSetup = document.getElementById("quizSetup");
 const firstName = document.getElementById("firstName");
 const errorBox = document.getElementById("errorBox"); // Display validation errors
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const courseSection = document.getElementById("courseSection");
+const quizTopic = document.getElementById("quizTopic");
 
 // Participant summary section
 const summarySection = document.getElementById("summarySection");
 const summaryFirstName = document.getElementById("summaryFirstName");
+const summaryLastName = document.getElementById("summaryLastName");
+const summaryEmail = document.getElementById("summaryEmail");
+const summaryCourseSection = document.getElementById("summaryCourseSection");
+const summaryQuizTopic = document.getElementById("summaryQuizTopic");
 
 // Quiz and results elements
 const quizSection = document.getElementById("quizSection");
@@ -57,14 +65,19 @@ quizSetup.addEventListener("submit", function (event) {
   // Clear any previous error messages
   errorBox.textContent = "";
 
-  // Validate that first name is provided
-  if (firstName.value.trim() === "") {
-    errorBox.textContent = "Enter your first name before starting the quiz.";
+  // Validate if all required fields are filled
+  if (!quizSetup.checkValidity()) {
+    errorBox.textContent =
+      "Complete all required fields before starting the quiz";
     return;
   }
 
-  // Copy participant name to summary and show quiz
+  // Copy all entered values to summary and show quiz
   summaryFirstName.textContent = firstName.value.trim();
+  summaryLastName.textContent = lastName.value.trim();
+  summaryEmail.textContent = email.value.trim();
+  summaryCourseSection.textContent = courseSection.value;
+  summaryQuizTopic.textContent = quizTopic.value.trim();
   summarySection.classList.remove("hidden");
   quizSection.classList.remove("hidden");
   resultsSection.classList.add("hidden");
