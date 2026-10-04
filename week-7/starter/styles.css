@@ -43,10 +43,16 @@ main {
   align-items: start;
 }
 
+.sidebar {
+  display: grid;
+  gap: 16px;
+}
+
 /* Sidebar sections spacing */
+.sidebar .timer-box,
 .sidebar .setup-section,
 .sidebar .summary-section {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 /* Card-style section container */
@@ -68,6 +74,15 @@ h2 {
 }
 
 /* Form and question spacing */
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label:not(:first-child) {
+  margin-top: 10px;
+}
+
 .form-row,
 .question-row {
   margin-bottom: 14px;
@@ -82,6 +97,7 @@ label {
 
 /* Text inputs and selects */
 input[type="text"],
+input[type="email"],
 select {
   width: 100%;
   max-width: 320px;
@@ -138,6 +154,9 @@ button:hover {
 
 /* Timer display box */
 .timer-box {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
   min-width: 140px;
   padding: 14px 12px;
   margin-bottom: 16px;
@@ -180,10 +199,10 @@ button:hover {
 
 /* Question card container */
 .question-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
 }
 
 /* Question number label */
@@ -206,7 +225,7 @@ button:hover {
 
 /* Question input area */
 .question-input {
-  width: 100%;
+  width: auto;
 }
 
 /* Styling for incorrect answers */
@@ -233,5 +252,18 @@ button:hover {
   /* Keep timer sized naturally in the stacked sidebar */
   .timer-box {
     min-width: 120px;
+  }
+
+  .question-content {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .question-input {
+    width: 100%;
+  }
+
+  .question-row input[type="text"] {
+    max-width: none;
   }
 }
