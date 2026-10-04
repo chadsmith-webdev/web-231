@@ -23,6 +23,8 @@ subButton.addEventListener("click", validateMonth);
 
 subButton.addEventListener("click", validateYear);
 
+subButton.addEventListener("click", validateCVC);
+
 // check if the owner's name is entered on the card
 
 function validateName() {
@@ -53,6 +55,24 @@ function validateNumber() {
     cNum.setCustomValidity("Enter a valid card number");
   } else {
     cNum.setCustomValidity("");
+  }
+}
+
+// Check if the card CVC is valid
+function validateCVC() {
+  // Determine which card was selected
+  let card = document.querySelector('input[name="credit"]:checked').value;
+  let cvc = document.getElementById("cvc");
+
+  // Validate the CVC value
+  if (cvc.validity.valueMissing) {
+    cvc.setCustomValidity("Enter your CVC number");
+  } else if (card === "amex" && !/^\d{4}$/.test(cvc.value)) {
+    cvc.setCustomValidity("Enter a 4-digit number");
+  } else if (card !== "amex" && !/^\d{3}$/.test(cvc.value)) {
+    cvc.setCustomValidity("Enter a 3-digit number");
+  } else {
+    cvc.setCustomValidity("");
   }
 }
 
