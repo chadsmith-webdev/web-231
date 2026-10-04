@@ -19,7 +19,7 @@ function copyShippingToBilling() {
   let firstnameShip = document.getElementById("firstnameShip");
 
   let lastnameBill = document.getElementById("lastnameBill");
-  let latnameShip = document.getElementById("lastnameShip");
+  let lastnameShip = document.getElementById("lastnameShip");
 
   let address1Bill = document.getElementById("address1Bill");
   let address1Ship = document.getElementById("address1Ship");
@@ -41,7 +41,7 @@ function copyShippingToBilling() {
 
   if (useShip.checked) {
     firstnameBill.value = firstnameShip.value;
-    lastnameBill.value = latnameShip.value;
+    lastnameBill.value = lastnameShip.value;
     address1Bill.value = address1Ship.value;
     address2Bill.value = address2Ship.value;
     cityBill.value = cityShip.value;
