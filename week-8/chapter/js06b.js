@@ -15,15 +15,15 @@ let subButton = document.getElementById("subButton");
 // Validate the payment when the submit button is clicked
 subButton.addEventListener("click", validateName);
 
-// check if the owner's name is entered on the card function 
+// check if the owner's name is entered on the card
 
-validateName () {
-   let cardName = document.getElementById("cardName");
-   if (cardName.validity.valueMissing) {
-      cardName.setCustomValidity("Enter your name as it appears on the card");
-   } else {
-      cardName.setCustomValidity("");
-   }
+function validateName() {
+  let cardName = document.getElementById("cardName");
+  if (cardName.validity.valueMissing) {
+    cardName.setCustomValidity("Enter your name as it appears on the card");
+  } else {
+    cardName.setCustomValidity("");
+  }
 }
 
 /* ------- Luhn Algorithm used for Validating Credit Card Numbers   ----- */
