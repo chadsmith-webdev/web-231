@@ -10,7 +10,12 @@
       Filename: js06b.js
  */
 
-// check if the owner's name is entered on the cardfunction 
+let subButton = document.getElementById("subButton");
+
+// Validate the payment when the submit button is clicked
+subButton.addEventListener("click", validateName);
+
+// check if the owner's name is entered on the card function 
 
 validateName () {
    let cardName = document.getElementById("cardName");
