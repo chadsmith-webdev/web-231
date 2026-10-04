@@ -17,6 +17,8 @@ subButton.addEventListener("click", validateName);
 
 subButton.addEventListener("click", validateCard);
 
+subButton.addEventListener("click", validateNumber);
+
 // check if the owner's name is entered on the card
 
 function validateName() {
@@ -35,6 +37,18 @@ function validateCard() {
     card.setCustomValidity("Select your credit card");
   } else {
     card.setCustomValidity("");
+  }
+}
+
+// Check if the card number is valid
+function validateNumber() {
+  let cNum = document.getElementById("cardNumber");
+  if (cNum.validity.valueMissing) {
+    cNum.setCustomValidity("Enter your card number");
+  } else if (cNum.validity.patternMismatch) {
+    cNum.setCustomValidity("Enter a valid card number");
+  } else {
+    cNum.setCustomValidity("");
   }
 }
 
