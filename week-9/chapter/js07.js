@@ -24,6 +24,9 @@ document.getElementById("getFile").onchange = function () {
   let sourceDoc = document.getElementById("wc_document");
   fr.onload = function () {
     sourceDoc.innerHTML = fr.result;
+
+    // Store the text of the document, removing HTML tags
+    let sourceText = sourceDoc.textContent;
   };
 };
 
