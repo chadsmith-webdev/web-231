@@ -65,6 +65,17 @@ quizSetup.addEventListener("submit", function (event) {
   // Clear any previous error messages
   errorBox.textContent = "";
 
+  // Validate the email before starting the quiz
+  if (
+    !email.value.includes("@") ||
+    /\s/.test(email.value) ||
+    !/\.(com|net)$/i.test(email.value)
+  ) {
+    errorBox.textContent =
+      "Email must contain an @ symbol, contain no spaces, and end in .com or .net.";
+    return;
+  }
+
   // Validate if all required fields are filled
   if (!quizSetup.checkValidity()) {
     errorBox.textContent =
